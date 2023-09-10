@@ -13,7 +13,7 @@ body {
 }
 
 .header {
-  background: #D9D9D9;
+  background: #d9d9d9;
   height: 12.625rem;
   flex-shrink: 0;
   display: flex;
@@ -34,7 +34,7 @@ body {
   height: 5.3125rem;
   flex-shrink: 0;
   border-radius: 0.625rem;
-  background: #92DA67;
+  background: #92da67;
   border: none;
   color: #000;
   font-family: "Inter", sans-serif;
@@ -45,7 +45,74 @@ body {
 }
 .header button:hover {
   background-color: #000;
-  color: #92DA67;
+  color: #92da67;
+  cursor: pointer;
+}
+
+.content {
+  display: grid;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.content .book {
+  width: 27rem;
+  height: 30rem;
+  border-radius: 2.375rem;
+  background: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.content .book .info {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.content .book .info h3:first-of-type {
+  font-family: "Crimson Pro", serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+.content .book i.fi {
+  align-self: end;
+  margin-right: 30px;
+  font-size: 2rem;
+}
+.content .book i.fi:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+.content .book h1 {
+  color: #000;
+  font-family: "Crimson Pro", serif;
+  font-size: 4rem;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+.content .book h3 {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.content .book button {
+  width: 10.625rem;
+  height: 4.12388rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  background: #92da67;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.content .book button:hover {
+  background-color: #000;
+  color: #92da67;
   cursor: pointer;
 }
 
