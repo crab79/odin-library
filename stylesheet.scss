@@ -60,7 +60,12 @@ body {
 .content {
     display: grid;
     justify-content: center;
-    margin-top: 2rem;
+    margin: 2rem;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, 27rem);
+    grid-template-rows: repeat(auto-fit, 30rem);
+    grid-auto-columns: 27rem;
+    grid-auto-rows: 30rem;
 
     .book {
         width: 27rem;
@@ -77,7 +82,7 @@ body {
             gap: 1rem;
             display: flex;
             flex-direction: column;
-            h3:first-of-type {
+            h3:first-of-type, #author {
                 font-family: $title-font;
                 font-size: 2.5rem;
                 font-weight: 400;
@@ -94,7 +99,7 @@ body {
             }
         }
 
-        h1 {
+        h1,  {
             color: #000;
             font-family: $title-font;
             font-size: 4rem;

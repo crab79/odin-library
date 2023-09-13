@@ -13,25 +13,68 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Simple Library</h1>
-        <button type="button">NEW BOOK</button>
-    </div>
-    <div class="content">
-        <div class="book">
-            <i class="fi fi-br-cross"></i>
-            <h1>Title</h1>
-            <div class="info">
-                <h3>By Author...</h3>
-                <h3>Page: 10</h3>
-                <h3>Date: 2023/09/10</h3>
-            </div>
-            <button type="button">Read</button>
+    <header>
+        <div class="header">
+            <h1>Simple Library</h1>
+            <button type="button" id="adding">NEW BOOK</button>
         </div>
-    </div>
-    <!--
-    
-    <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
-    -->
+    </header>
+    <main>
+        <div class="content">
+            <!-- A modal dialog containing a form -->
+            <dialog id="addBookDialog">
+                <form>
+                <p>
+                    <label id="style1">
+                        Title:
+                        <input type="text" name="title">
+                    </label>
+                    <label id="style2">
+                        Author:
+                        <input type="text" name="author">
+                    </label>
+                    <label id="style2">
+                        Page:
+                        <input type="text"  name="page">
+                    </label>
+                    <label id="style2">
+                        Date:
+                        <input type="date" name="date" id="date">
+                    </label>
+                    <label id="style2">
+                        Read or not yet?
+                        <label>
+                            Yes
+                            <input name="read_option" type="radio" value="yes" />
+                        </label>
+                        
+                        <label>
+                            No
+                            <input name="read_option" type="radio" value="no" />
+                        </label>                        
+                    </label>
+                </p>
+                <div>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                    <button id="confirmBtn" value="default">Confirm</button>
+                </div>
+                </form>
+            </dialog>
+            <div class="book">
+                <i class="fi fi-br-cross"></i>
+                <h1>Title</h1>
+                <div class="info">
+                    <h3>By Author...</h3>
+                    <h3>Page: 10</h3>
+                    <h3>Date: 2023/09/10</h3>
+                </div>
+                <button type="button">Read</button>
+            </div>
+        </div>
+        <!--
+        <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
+        -->
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>

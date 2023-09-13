@@ -52,7 +52,12 @@ body {
 .content {
   display: grid;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 2rem;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, 27rem);
+  grid-template-rows: repeat(auto-fit, 30rem);
+  grid-auto-columns: 27rem;
+  grid-auto-rows: 30rem;
 }
 .content .book {
   width: 27rem;
@@ -70,7 +75,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.content .book .info h3:first-of-type {
+.content .book .info h3:first-of-type, .content .book .info #author {
   font-family: "Crimson Pro", serif;
   font-size: 2.5rem;
   font-weight: 400;
