@@ -82,7 +82,8 @@ body {
             gap: 1rem;
             display: flex;
             flex-direction: column;
-            h3:first-of-type, #author {
+            h3:first-of-type,
+            #author {
                 font-family: $title-font;
                 font-size: 2.5rem;
                 font-weight: 400;
@@ -99,7 +100,7 @@ body {
             }
         }
 
-        h1,  {
+        h1 {
             color: #000;
             font-family: $title-font;
             font-size: 4rem;

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Simple Library</title>
-    <link rel = "icon" href = "img/book.png" type = "image/x-icon">
+    <link rel="icon" href="img/book.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Inter&family=Kanit:wght@200&family=Righteous&family=Roboto+Condensed:ital@1&display=swap');
         @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
     </style>
 </head>
+
 <body>
     <header>
         <div class="header">
@@ -24,40 +26,40 @@
             <!-- A modal dialog containing a form -->
             <dialog id="addBookDialog">
                 <form>
-                <p>
-                    <label id="style1">
-                        Title:
-                        <input type="text" name="title">
-                    </label>
-                    <label id="style2">
-                        Author:
-                        <input type="text" name="author">
-                    </label>
-                    <label id="style2">
-                        Page:
-                        <input type="text"  name="page">
-                    </label>
-                    <label id="style2">
-                        Date:
-                        <input type="date" name="date" id="date">
-                    </label>
-                    <label id="style2">
-                        Read or not yet?
-                        <label>
-                            Yes
-                            <input name="read_option" type="radio" value="yes" />
+                    <p>
+                        <label id="style1">
+                            Title:
+                            <input type="text" name="title">
                         </label>
-                        
-                        <label>
-                            No
-                            <input name="read_option" type="radio" value="no" />
-                        </label>                        
-                    </label>
-                </p>
-                <div>
-                    <button value="cancel" formmethod="dialog">Cancel</button>
-                    <button id="confirmBtn" value="default">Confirm</button>
-                </div>
+                        <label id="style2">
+                            Author:
+                            <input type="text" name="author">
+                        </label>
+                        <label id="style2">
+                            Page:
+                            <input type="text" name="page">
+                        </label>
+                        <label id="style2">
+                            Date:
+                            <input type="date" name="date" id="date">
+                        </label>
+                        <label id="style2">
+                            Read or not yet?
+                            <label>
+                                Yes
+                                <input name="read_option" type="radio" value="yes" />
+                            </label>
+
+                            <label>
+                                No
+                                <input name="read_option" type="radio" value="no" />
+                            </label>
+                        </label>
+                    </p>
+                    <div>
+                        <button value="cancel" formmethod="dialog">Cancel</button>
+                        <button id="confirmBtn" value="default">Confirm</button>
+                    </div>
                 </form>
             </dialog>
             <div class="book">
@@ -77,4 +79,5 @@
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
