@@ -1,4 +1,4 @@
-//set attribute to elements, change the dialog's style,add a button  to remove the book from the library, add a button to change its read status. 
+//show the correct read status, change the dialog's style,add a button  to remove the book from the library, add a button to change its read status. 
 const adding = document.getElementById("adding");
 const addBookDialog = document.getElementById("addBookDialog");
 const outputBox = document.getElementsByClassName("content")[0];
@@ -16,8 +16,6 @@ adding.addEventListener("click", () => {
 addBookDialog.addEventListener("close", (e) => {
   if (addBookDialog.returnValue !== "default") {
     const outputContainer = document.createElement("div");
-    const infoClass = document.createElement("div");
-    infoClass.setAttribute("class", "info");
     outputContainer.setAttribute("class", "book");
 
 
@@ -64,6 +62,8 @@ function TurnIntoHtml(library, container) {
   const page = document.createElement("h3");
   const date = document.createElement("h3");
   const statusButton = document.createElement('button');
+  const infoClass = document.createElement("div");
+  infoClass.setAttribute("class", "info");
 
   title.textContent = latestBook.title;
   author.textContent = `By ${latestBook.author}`;
@@ -73,9 +73,10 @@ function TurnIntoHtml(library, container) {
 
   container.appendChild(newClosingButton);
   container.appendChild(title);
-  container.appendChild(author);
-  container.appendChild(page);
-  container.appendChild(date);
+  container.appendChild(infoClass);
+  infoClass.appendChild(author);
+  infoClass.appendChild(page);
+  infoClass.appendChild(date);
   container.appendChild(statusButton);
 }
 
