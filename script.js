@@ -1,4 +1,4 @@
-//添加關閉按鈕，用物件方式生成DOM
+//set attribute to elements, change the dialog's style,add a button  to remove the book from the library, add a button to change its read status. 
 const adding = document.getElementById("adding");
 const addBookDialog = document.getElementById("addBookDialog");
 const outputBox = document.getElementsByClassName("content")[0];
@@ -20,13 +20,10 @@ addBookDialog.addEventListener("close", (e) => {
     infoClass.setAttribute("class", "info");
     outputContainer.setAttribute("class", "book");
 
-    addClosingButton(outputContainer);
-    addTitle(inputEl[0].value, outputContainer);
-    outputContainer.appendChild(infoClass);
-    addAuthor(inputEl[1].value, infoClass);
-    addPage(inputEl[2].value, infoClass);
-    addDate(inputEl[3].value, infoClass);
-    addReadingButton(inputEl[4].checked ? "Yes" : "No", outputContainer);
+
+    let newBook = Book(inputEl);
+    AddBookToLibrary(newBook);
+    TurnIntoHtml(myLibrary, outputContainer);
 
     // Append the outputContainer to outputBox
     outputBox.appendChild(outputContainer);
@@ -42,38 +39,44 @@ confirmBtn.addEventListener("click", (event) => {
 });
 
 
-function addClosingButton(container){
+const myLibrary = [];
+
+function Book(inputsArray) {
+  let bookObj = {
+    title: inputsArray[0].value,
+    author: inputsArray[1].value,
+    page: inputsArray[2].value,
+    date: inputsArray[3].value,
+    status: inputsArray[4].value,
+  }
+  return bookObj;
+}
+
+function AddBookToLibrary(book) {
+  myLibrary.push(book);
+}
+
+function TurnIntoHtml(library, container) {
+  const latestBook = library[library.length - 1];
   const newClosingButton = closingButton.cloneNode(true);
-  container.appendChild(newClosingButton);
-}
-
-function addReadingButton(content, container){
-  const newButton = document.createElement('button');
-  newButton.textContent = content;
-  container.appendChild(newButton);
-}
-
-function addTitle(content, container){
   const title = document.createElement("h1");
-  title.textContent = content;
-  container.appendChild(title);
-}
-
-function addPage(content, container){
-  const page = document.createElement("h3");
-  page.textContent = "Page: " + content;
-  container.appendChild(page);
-}
-
-function addDate(content, container){
-  const date = document.createElement("h3");
-  date.textContent = "Date: " + content;
-  container.appendChild(date);
-}
-
-function addAuthor(content, container){
   const author = document.createElement("h3");
-  author.textContent = "By " + content;
-  author.setAttribute("id", "author");
+  const page = document.createElement("h3");
+  const date = document.createElement("h3");
+  const statusButton = document.createElement('button');
+
+  title.textContent = latestBook.title;
+  author.textContent = `By ${latestBook.author}`;
+  page.textContent = `Page: ${latestBook.page}`;
+  date.textContent = `Date: ${latestBook.date}`;
+  statusButton.textContent = latestBook.status ? "Read" : "Not yet";
+
+  container.appendChild(newClosingButton);
+  container.appendChild(title);
   container.appendChild(author);
+  container.appendChild(page);
+  container.appendChild(date);
+  container.appendChild(statusButton);
 }
+
+
