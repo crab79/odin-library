@@ -1,11 +1,11 @@
-//show the correct read status, change the dialog's style,add a button  to remove the book from the library, add a button to change its read status. 
+// change the dialog's style,add a button to remove the book from the library . 
 const adding = document.getElementById("adding");
 const addBookDialog = document.getElementById("addBookDialog");
 const outputBox = document.getElementsByClassName("content")[0];
 const inputEl = addBookDialog.querySelectorAll("input");
 const confirmBtn = addBookDialog.querySelector("#confirmBtn");
 const closingButton = document.getElementsByClassName("fi")[0];
-
+const statusButton = document.getElementById("status");
 
 // "Show the dialog" button opens the <dialog> modally
 adding.addEventListener("click", () => {
@@ -23,6 +23,7 @@ addBookDialog.addEventListener("close", (e) => {
     AddBookToLibrary(newBook);
     TurnIntoHtml(myLibrary, outputContainer);
 
+
     // Append the outputContainer to outputBox
     outputBox.appendChild(outputContainer);
   } else {
@@ -36,7 +37,6 @@ confirmBtn.addEventListener("click", (event) => {
   addBookDialog.close("confirmed"); // You can send any value here to indicate confirmation
 });
 
-
 const myLibrary = [];
 
 function Book(inputsArray) {
@@ -45,7 +45,7 @@ function Book(inputsArray) {
     author: inputsArray[1].value,
     page: inputsArray[2].value,
     date: inputsArray[3].value,
-    status: inputsArray[4].value,
+    status: document.querySelector('input[name="read_option"]:checked').value,
   }
   return bookObj;
 }
@@ -69,7 +69,15 @@ function TurnIntoHtml(library, container) {
   author.textContent = `By ${latestBook.author}`;
   page.textContent = `Page: ${latestBook.page}`;
   date.textContent = `Date: ${latestBook.date}`;
-  statusButton.textContent = latestBook.status ? "Read" : "Not yet";
+  if (latestBook.status == "yes") {
+    statusButton.textContent = "Read";
+    statusButton.setAttribute("id", "status");
+    statusButton.setAttribute("class", "read");
+  } else if (latestBook.status == "no") {
+    statusButton.textContent = "Not yet";
+    statusButton.setAttribute("id", "status");
+    statusButton.setAttribute("class", "not-yet");
+  }
 
   container.appendChild(newClosingButton);
   container.appendChild(title);
@@ -78,6 +86,26 @@ function TurnIntoHtml(library, container) {
   infoClass.appendChild(page);
   infoClass.appendChild(date);
   container.appendChild(statusButton);
+
+  statusButton.addEventListener("click", (event) => {
+    if (statusButton.textContent == "Read") {
+      statusButton.textContent = "Not yet";
+      statusButton.setAttribute("class", "not-yet");
+    } else if (statusButton.textContent == "Not yet") {
+      statusButton.textContent = "Read";
+      statusButton.setAttribute("class", "read");
+    }
+  })
+
 }
 
+statusButton.addEventListener("click", (event) => {
+  if (statusButton.textContent == "Read") {
+    statusButton.textContent = "Not yet";
+    statusButton.setAttribute("class", "not-yet");
+  } else if (statusButton.textContent == "Not yet") {
+    statusButton.textContent = "Read";
+    statusButton.setAttribute("class", "read");
+  }
+})
 

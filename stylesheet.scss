@@ -121,11 +121,27 @@ body {
             border-radius: 0.625rem;
             background: $button-green;
             border: none;
-            &:hover {
-                background-color: #000;
-                color: $button-green;
+            &.read{
+                background-color: $button-green;
+                color: #000;
                 cursor: pointer;
+                &:hover {
+                    background-color: #000;
+                    color: $button-green;
+                    cursor: pointer;
+                }
             }
+            &.not-yet{
+                background-color: $button-red;
+                color: #000;
+                cursor: pointer;
+                &:hover{
+                    background-color: #000;
+                    color: $button-red;
+                    cursor: pointer;
+                }
+            }
+
             font-family: $header-font;
             font-size: 2rem;
             font-style: normal;

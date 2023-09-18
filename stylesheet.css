@@ -115,9 +115,24 @@ body {
   font-weight: 400;
   line-height: normal;
 }
-.content .book button:hover {
+.content .book button.read {
+  background-color: #92da67;
+  color: #000;
+  cursor: pointer;
+}
+.content .book button.read:hover {
   background-color: #000;
   color: #92da67;
+  cursor: pointer;
+}
+.content .book button.not-yet {
+  background-color: #da8967;
+  color: #000;
+  cursor: pointer;
+}
+.content .book button.not-yet:hover {
+  background-color: #000;
+  color: #da8967;
   cursor: pointer;
 }
 
