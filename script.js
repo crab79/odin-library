@@ -1,4 +1,4 @@
-// change the dialog's style,add a button to remove the book from the library . 
+// change the dialog's style. 
 const adding = document.getElementById("adding");
 const addBookDialog = document.getElementById("addBookDialog");
 const outputBox = document.getElementsByClassName("content")[0];
@@ -54,17 +54,30 @@ function AddBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+
 function TurnIntoHtml(library, container) {
   const latestBook = library[library.length - 1];
-  const newClosingButton = closingButton.cloneNode(true);
+  const closingButton = document.createElement("i");
   const title = document.createElement("h1");
   const author = document.createElement("h3");
   const page = document.createElement("h3");
   const date = document.createElement("h3");
   const statusButton = document.createElement('button');
   const infoClass = document.createElement("div");
+
+  closingButton.setAttribute('class', 'fi fi-br-cross remove-book',);
   infoClass.setAttribute("class", "info");
 
+  closingButton.addEventListener('click', (event) => {
+    // 获取当前图书的索引
+    const bookIndex = Array.from(myLibrary).indexOf(this);
+
+    // 从数组中移除该图书
+    myLibrary.splice(bookIndex, 1);
+
+    // 从 DOM 中移除该图书的容器
+    container.parentNode.removeChild(container);
+  });
   title.textContent = latestBook.title;
   author.textContent = `By ${latestBook.author}`;
   page.textContent = `Page: ${latestBook.page}`;
@@ -79,7 +92,7 @@ function TurnIntoHtml(library, container) {
     statusButton.setAttribute("class", "not-yet");
   }
 
-  container.appendChild(newClosingButton);
+  container.appendChild(closingButton);
   container.appendChild(title);
   container.appendChild(infoClass);
   infoClass.appendChild(author);
@@ -108,4 +121,3 @@ statusButton.addEventListener("click", (event) => {
     statusButton.setAttribute("class", "read");
   }
 })
-
