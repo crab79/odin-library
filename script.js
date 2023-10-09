@@ -112,6 +112,7 @@ function TurnIntoHtml(library, container) {
 
 }
 
+/*
 statusButton.addEventListener("click", (event) => {
   if (statusButton.textContent == "Read") {
     statusButton.textContent = "Not yet";
@@ -121,3 +122,4 @@ statusButton.addEventListener("click", (event) => {
     statusButton.setAttribute("class", "read");
   }
 })
+*/
