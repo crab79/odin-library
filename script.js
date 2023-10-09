@@ -1,4 +1,3 @@
-// change the dialog's style. 
 const adding = document.getElementById("adding");
 const addBookDialog = document.getElementById("addBookDialog");
 const outputBox = document.getElementsByClassName("content")[0];
@@ -111,15 +110,3 @@ function TurnIntoHtml(library, container) {
   })
 
 }
-
-/*
-statusButton.addEventListener("click", (event) => {
-  if (statusButton.textContent == "Read") {
-    statusButton.textContent = "Not yet";
-    statusButton.setAttribute("class", "not-yet");
-  } else if (statusButton.textContent == "Not yet") {
-    statusButton.textContent = "Read";
-    statusButton.setAttribute("class", "read");
-  }
-})
-*/
